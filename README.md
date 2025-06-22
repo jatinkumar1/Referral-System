@@ -42,8 +42,10 @@ multi-referral-system/
     └── README.md # Documentation
 </code> </pre>
 
+---
+
 ## Database Models
-  ### User Model
+  #### User Model
   <pre> <code>
   {
   name: String,
@@ -54,7 +56,7 @@ multi-referral-system/
   }
   </code> </pre>
 
-  ### Earning Models
+  #### Earning Model
   <pre> <code>
   {
   user: ObjectId,          // Referrer who earns
@@ -64,6 +66,8 @@ multi-referral-system/
   purchaseAmount: Number   // Original purchase amount
   }
   </code> </pre>
+
+---
 
 ## API Documentations
   #### POST /api/users/signup
