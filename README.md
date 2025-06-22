@@ -42,6 +42,38 @@ multi-referral-system/
     └── README.md # Documentation
 </code> </pre>
 
+
+---
+
+## Setup Instructions
+
+#### 1. Clone the repo
+
+```bash
+git clone https://github.com/YOUR_USERNAME/multi-referral-system.git
+cd multi-referral-system
+cd backend
+```
+
+#### 2. Install Dependecies
+
+``` bash
+npm install
+```
+
+#### 3. Add .env file
+
+```bash
+MONGO_URI=mongodb://localhost:27017/referralSystem
+PORT=3000
+```
+
+#### 4. Start the server
+
+```bash
+node server.js
+```
+
 ---
 
 ## Database Models
