@@ -43,13 +43,15 @@ multi-referral-system/
 
 ## Database Models
   ### User Model
-  `{`
+  <pre> <code> ``` 
+  `{'
   `name: String,`
   `email: String,`
   `referralCode: String,`
   `referredBy: ObjectId (User),`
   `referrals: [ObjectId]`
   `}`
+   ``` </code> </pre>
 
   ### Earning Models
   `{`
