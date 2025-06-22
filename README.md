@@ -43,62 +43,73 @@ multi-referral-system/
 
 ## Database Models
   ### User Model
-  <pre> <code> ``` 
-  `{'
-  `name: String,`
-  `email: String,`
-  `referralCode: String,`
-  `referredBy: ObjectId (User),`
-  `referrals: [ObjectId]`
-  `}`
-   ``` </code> </pre>
+  <pre> <code>
+  {
+  name: String,
+  email: String,
+  referralCode: String,
+  referredBy: ObjectId (User),
+  referrals: [ObjectId]
+  }
+  </code> </pre>
 
   ### Earning Models
-  `{`
-  `user: ObjectId,          // Referrer who earns`
-  `sourceUser: ObjectId,    // Buyer who made purchase`
-  `level: Number,           // 1 or 2`
-  `amount: Number,          // Earned amount`
-  `purchaseAmount: Number   // Original purchase amount`
-  `}`
+  <pre> <code>
+  {
+  user: ObjectId,          // Referrer who earns
+  sourceUser: ObjectId,    // Buyer who made purchase
+  level: Number,           // 1 or 2
+  amount: Number,          // Earned amount
+  purchaseAmount: Number   // Original purchase amount
+  }
+  </code> </pre>
 
 ## API Documentations
-  ### POST /api/users/signup
+  #### POST /api/users/signup
   *Request*
-  `{`
-  `"name": "Alice",`
-  `"email": "alice@example.com",`
-  `"referredBy": "BOB_USER_ID"         // Optional (referrer)`
-  `}`
-
-  ### POST /api/purchase
+  <pre> <code>
+  {
+  "name": "Alice",
+  "email": "alice@example.com",
+  "referredBy": "BOB_USER_ID"         // Optional (referrer)
+  }
+  </code> </pre>
+      
+  #### POST /api/purchase
   Simulate a user making a purchase. Distributes profit to referrers if the amount is ≥ ₹1000.
   *Request*
+    <pre> <code>
   {
   "userId": "64fc1cabc123...",
   "amount": 1500
   }
+    </code> </pre>
 
   *Response*
+  <pre> <code>
   {
   "message": "Purchase successful and earnings distributed."
   }
+      </code> </pre>
   
   **If amount < ₹1000:**
+    <pre> <code>
   {
   "message": "Purchase successful, but amount is less than 1000 — no referral earnings."
   }
+  </code> </pre>
 
-  ### GET /api/users/:id/referrals
+  #### GET /api/users/:id/referrals
   Fetch all direct referrals of a user.
   Example: GET /api/users/64fc1cabc123/referrals
 
-  ### GET /api/users/:id/earnings
+  #### GET /api/users/:id/earnings
   Get all earnings for a user with breakdown and total.
 
-  ### GET /api/users/:id/analytics
+  #### GET /api/users/:id/analytics
   Get summarized earnings grouped by level and source.
   *Response*
+   <pre> <code>
   
   {
   "totalEarnings": 110,
@@ -111,14 +122,17 @@ multi-referral-system/
     }
     }
   }
+  </code> </pre>
+
+---
 
 
 ## Testing in Postman Includes
-POST /api/users/signup
-POST /api/purchase
-GET /api/users/:id/referrals
-GET /api/users/:id/earnings
-GET /api/users/:id/analytics
+- POST /api/users/signup
+- POST /api/purchase
+- GET /api/users/:id/referrals
+- GET /api/users/:id/earnings
+- GET /api/users/:id/analytics
   
 
 
