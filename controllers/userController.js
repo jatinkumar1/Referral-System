@@ -4,14 +4,14 @@ const Earning = require("../models/Earning");
 
 exports.signup = async (req, res) => {
   try {
-    const { name, email, referralCode, referredBy } = req.body;
+    const { name, email , referredBy } = req.body;
     const referrals = referredBy ? await User.find({ referredBy }) : [];
 
     if (referredBy && referrals.length >= 8) {
       return res.status(400).json({ error: "Referrer has reached max referral limit" });
     }
 
-    const user = await User.create({ name, email, referralCode, referredBy });
+    const user = await User.create({ name, email, referredBy });
     if (referredBy) {
       await User.findByIdAndUpdate(referredBy, { $push: { referrals: user._id } });
     }
