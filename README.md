@@ -43,31 +43,31 @@ multi-referral-system/
 
 ## Database Models
   ### User Model
-  {
-  name: String,
-  email: String,
-  referralCode: String,
-  referredBy: ObjectId (User),
-  referrals: [ObjectId]
-  }
+  `{`
+  `name: String,`
+  `email: String,`
+  `referralCode: String,`
+  `referredBy: ObjectId (User),`
+  `referrals: [ObjectId]`
+  `}`
 
   ### Earning Models
-  {
-  user: ObjectId,          // Referrer who earns
-  sourceUser: ObjectId,    // Buyer who made purchase
-  level: Number,           // 1 or 2
-  amount: Number,          // Earned amount
-  purchaseAmount: Number   // Original purchase amount
-  }
+  `{`
+  `user: ObjectId,          // Referrer who earns`
+  `sourceUser: ObjectId,    // Buyer who made purchase`
+  `level: Number,           // 1 or 2`
+  `amount: Number,          // Earned amount`
+  `purchaseAmount: Number   // Original purchase amount`
+  `}`
 
 ## API Documentations
   ### POST /api/users/signup
   *Request*
-  {
-  "name": "Alice",
-  "email": "alice@example.com",
-  "referredBy": "BOB_USER_ID"         // Optional (referrer)
-  }
+  `{`
+  `"name": "Alice",`
+  `"email": "alice@example.com",`
+  `"referredBy": "BOB_USER_ID"         // Optional (referrer)`
+  `}`
 
   ### POST /api/purchase
   Simulate a user making a purchase. Distributes profit to referrers if the amount is ≥ ₹1000.
