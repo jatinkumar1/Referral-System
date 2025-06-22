@@ -29,7 +29,7 @@ A backend project to implement a **multi-level referral system** with:
 ---
 
 ## Folder Structure
-
+<pre> <code> 
 multi-referral-system/
 └── backend/
     ├── config/ # MongoDB connection
@@ -40,6 +40,7 @@ multi-referral-system/
     ├── .env.example # Environment variables
     ├── server.js # Entry file
     └── README.md # Documentation
+</code> </pre>
 
 ## Database Models
   ### User Model
@@ -66,6 +67,8 @@ multi-referral-system/
 
 ## API Documentations
   #### POST /api/users/signup
+  Create a new user.
+  
   *Request*
   <pre> <code>
   {
@@ -77,6 +80,7 @@ multi-referral-system/
       
   #### POST /api/purchase
   Simulate a user making a purchase. Distributes profit to referrers if the amount is ≥ ₹1000.
+  
   *Request*
     <pre> <code>
   {
@@ -99,15 +103,16 @@ multi-referral-system/
   }
   </code> </pre>
 
-  #### GET /api/users/:id/referrals
+  - #### GET /api/users/:id/referrals
   Fetch all direct referrals of a user.
-  Example: GET /api/users/64fc1cabc123/referrals
+  Example: ```GET /api/users/64fc1cabc123/referrals```
 
-  #### GET /api/users/:id/earnings
+  - #### GET /api/users/:id/earnings
   Get all earnings for a user with breakdown and total.
 
-  #### GET /api/users/:id/analytics
+  - #### GET /api/users/:id/analytics
   Get summarized earnings grouped by level and source.
+  
   *Response*
    <pre> <code>
   
